@@ -19,6 +19,10 @@ public class LKontener : Kontener, IHazardNotifier
         {
             Notify();
         }
+        else if (masa_ladunku >= max_masa)
+        {
+            throw new OverflowException();
+        }
         this.masa_ladunku = masa_ladunku;
     }
 
