@@ -18,9 +18,13 @@ public class Kontener
     public double depth { get; set; } //cm
     public double max_masa { get; set; } //kg
 
-    public Kontener()
+    public Kontener(double height, double depth, double masa_wlasna, double max_masa)
     {
         this.num_seryjny = numer++;
+        this.masa_wlasna = masa_wlasna;
+        this.depth = depth;
+        this.max_masa = max_masa;
+        this.height = height;
     } 
     
     public void Oproznij()
@@ -28,7 +32,7 @@ public class Kontener
         masa_ladunku = 0;
     }
 
-    public void Zaladuj()
+    public virtual void Zaladuj(double masa_ladunku)
     {
         
     }
