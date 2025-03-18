@@ -21,10 +21,15 @@ public static Dictionary<Rodzaj_produktu, double> lista_produktow = new Dictiona
 };
 
 
-public CKontener(double height, double depth, double masa_wlasna, double max_masa, double temperatura,Enum Rodzaj) : base(height, depth, masa_wlasna, max_masa)
+public CKontener(double height, double depth, double masa_wlasna, double max_masa, double temperatura,Rodzaj_produktu rodzaj) : base(height, depth, masa_wlasna, max_masa)
 {
     this.rodzaj = Rodzaj_kontenera.C;
     this.temperatura = temperatura;
+    if (temperatura > lista_produktow[rodzaj])
+    {
+        throw new InvalidDataException();
+    }
+
 }
 
     
