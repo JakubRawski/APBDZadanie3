@@ -24,6 +24,6 @@ public class LKontener : Kontener, IHazardNotifier
 
     public void Notify()
     {
-        throw new OverfillException();
+        Console.WriteLine($"Dla : {((czybezpieczne)? "bezpieczne": "niebezpieczne")} nie mozna zaladowac tak duzo");
     }
 }

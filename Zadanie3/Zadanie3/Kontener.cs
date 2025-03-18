@@ -27,14 +27,21 @@ public class Kontener
         this.height = height;
     } 
     
-    public void Oproznij()
+    public virtual void Oproznij()
     {
         masa_ladunku = 0;
     }
 
     public virtual void Zaladuj(double masa_ladunku)
     {
-        
+        if (masa_ladunku > max_masa)
+        {
+            throw new OverflowException();
+        }
+        else
+        {
+            this.masa_ladunku = masa_ladunku;
+        }
     }
 
     public String getKONName()
