@@ -34,9 +34,9 @@ public class Kontener
 
     public virtual void Zaladuj(double masa_ladunku)
     {
-        if (masa_ladunku > max_masa)
+        if (masa_ladunku+this.masa_ladunku > max_masa)
         {
-            throw new OverflowException();
+            throw new OverflowException("za duzy ladunek");
         }
         else
         {
