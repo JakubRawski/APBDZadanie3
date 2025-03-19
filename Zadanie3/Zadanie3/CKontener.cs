@@ -25,6 +25,7 @@ public CKontener(double height, double depth, double masa_wlasna, double max_mas
 {
     this.rodzaj = Rodzaj_kontenera.C;
     this.temperatura = temperatura;
+    this.rodzaj_produktu = rodzaj;
     if (temperatura > lista_produktow[rodzaj])
     {
         throw new InvalidDataException();
@@ -32,12 +33,30 @@ public CKontener(double height, double depth, double masa_wlasna, double max_mas
 
 }
 
-    
-
-public override void Oproznij()
+public override void Zaladuj(double ladunek)
 {
-    masa_ladunku -= masa_ladunku * 0.95;
+    Zaladuj(ladunek,rodzaj_produktu);
 }
+
+public void Zaladuj(double masa_ladunku, Rodzaj_produktu rodzaj)
+{
+    
+    if (rodzaj != rodzaj_produktu)
+    {
+        throw new InvalidDataException();
+    }
+
+    if (masa_ladunku+this.masa_ladunku > max_masa)
+    {
+        throw new OverflowException("za duzy ladunek");
+    }
+    else
+    {
+        this.masa_ladunku += masa_ladunku;
+    }
+}
+
+
 
 public void Notify()
 {

@@ -40,7 +40,7 @@ public class Kontener
         }
         else
         {
-            this.masa_ladunku = masa_ladunku;
+            this.masa_ladunku += masa_ladunku;
         }
     }
 
